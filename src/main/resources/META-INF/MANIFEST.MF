@@ -1,0 +1,3 @@
+Plugin-Label: plugin-jwt-auth
+Basic-Authenticator-Class: com.axway.st.plugins.auth.JwtAuthenticatorImpl
+Plugin-Configuration-Class: com.axway.st.plugins.auth.JwtPluginConfigurationBean

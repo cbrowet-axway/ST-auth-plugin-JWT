@@ -1,0 +1,5 @@
+SPI-Version:
+  '1.0':
+    Plugin-Label: plugin-jwtauth
+    Basic-Authenticator-Class: com.axway.st.plugins.auth.JwtAuthenticatorImpl
+    Plugin-Configuration-Class: com.axway.st.plugins.auth.JwtPluginConfigurationBean
