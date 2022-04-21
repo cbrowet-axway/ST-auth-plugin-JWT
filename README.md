@@ -43,7 +43,8 @@ Usage
 -----
 
 * The plugin expects the JWT token in a "X-JWT-TOKEN" header.  
-* Per ST's requirements, a Basic authentication header *must* be present. The user/password used is not taken into account, though.
+  * Per ST's requirements, a Basic authentication header *must* be present. The user/password used is not taken into account, though.
+* If not found, and if the username of basic auth is `x-jwt-token`, the password is assumed to be the JWT
 * For this plugin to work, the users's "Password is stored locally" setting must be disabled, or a "tried to authenticate virtual account with login name 'axway' whose password is stored locally. Cannot be authenticated externally" error occurs.
 
 Parameters

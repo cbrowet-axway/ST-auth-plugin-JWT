@@ -63,13 +63,18 @@ public class JwtAuthenticatorImpl implements BasicAuthenticator {
             theJWT = tokens.get(0);
         }
 
-        /* This works for the plugin, but makes ST hiccup with a "java.lang.StackOverflowError" */
+        if (theJWT.isEmpty() && authRequest.getUsername().equalsIgnoreCase("x-jwt-token")) {
+            mLogger.info("X-JWT-TOKEN user found. Assuming password = token.");
+            theJWT = new String(authRequest.getPassword());
+        }
+
+        // /* This works for the plugin, but makes ST hiccup with a "java.lang.StackOverflowError" */
         // if (theJWT.isEmpty()) {
         //     mLogger.warn("No X-JWT-TOKEN header found. Assuming username = token.");
         //     theJWT = authRequest.getUsername();
         // }
 
-        mLogger.info(String.format("JWT: %s.", theJWT));
+        mLogger.debug(String.format("JWT: %s.", theJWT));
         if (theJWT == null || theJWT.isEmpty()) {
             mLogger.error("No JWT found");
             return new AuthenticationResultBean("No JWT found",
