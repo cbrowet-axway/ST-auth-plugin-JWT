@@ -8,6 +8,7 @@ import com.auth0.jwk.JwkProvider;
 import com.auth0.jwk.UrlJwkProvider;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
+import com.auth0.jwt.interfaces.Claim;
 import com.auth0.jwt.interfaces.DecodedJWT;
 import com.axway.st.plugins.authentication.AuthenticationResult;
 import com.axway.st.plugins.authentication.BasicAuthenticationRequest;
@@ -115,11 +116,13 @@ public class JwtAuthenticatorImpl implements BasicAuthenticator {
 
         // String cl_email = jwt.getClaim("email").asString();
 
-        String cl_username = jwt.getClaim(mConfiguration.getUsernameClaim()).asString();
+        Claim cl_username = jwt.getClaim(mConfiguration.getUsernameClaim());
+        Claim cl_uid = jwt.getClaim("uid");
+        Claim cl_gid = jwt.getClaim("gid");
 
         UserData user;
         UserManager userManager = new UserManager();
-        user = userManager.getUser(cl_username);
+        user = userManager.getUser(cl_username.asString(), cl_uid.isNull() ? 1234 : cl_uid.asInt(), cl_gid.isNull() ? 2345 : cl_gid.asInt());
 
         mLogger.info(String.format("User '%s' authenticated successfully.", cl_username));
         return new AuthenticationResultBean(String.format("User '%s' authenticated successfully.", cl_username), user,
