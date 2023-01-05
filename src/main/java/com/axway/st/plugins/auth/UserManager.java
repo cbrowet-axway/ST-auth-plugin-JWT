@@ -34,6 +34,16 @@ public class UserManager {
         return user;
     }
 
+    public UserData getUser(String username, int uid, int gid) {
+        UserDataBean user = new UserDataBean(
+                username,
+                uid, gid,
+                username + "@axway.com",
+                "/usr/stusers/" + username);
+        addTag(user);
+        return user;
+    }
+
     /**
      * Checks if <code>user</code> was created by this factory.
      */
