@@ -21,12 +21,13 @@ Source Structure
 
 Building the Sample Application
 -------------------------------
-0.  Prerequisites:
-    *   JDK 1.7+
-    *   Pluggable authentication libraries installed in local maven repo
-            - see /lib/README.md
 
-1.  Build this authentication plug-in with maven.
+0. Prerequisites:
+    * JDK 1.7+
+    * Pluggable authentication libraries installed locally
+      * run `mvn install -f lib/pom.xml` to install the libraries
+
+1. Build this authentication plug-in with maven.
 
 
 Deploy
