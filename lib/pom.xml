@@ -1,0 +1,79 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.axway.securetransport.plugins</groupId>
+    <artifactId>securetransport-plugins-authentication-install-libs</artifactId>
+    <version>1</version>
+    <packaging>pom</packaging>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-install-plugin</artifactId>
+                <version>2.5</version>
+
+                <executions>
+                    <execution>
+                        <id>install-authentication-pom</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>install-file</goal>
+                        </goals>
+                        <configuration>
+                            <pomFile>securetransport-plugins-authentication.pom</pomFile>
+                            <file>securetransport-plugins-authentication.pom</file>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>install-authentication-samples-pom</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>install-file</goal>
+                        </goals>
+                        <configuration>
+                            <pomFile>securetransport-plugins-authentication-samples.pom</pomFile>
+                            <file>securetransport-plugins-authentication-samples.pom</file>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>install-spi-lib</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>install-file</goal>
+                        </goals>
+                        <configuration>
+                            <file>securetransport-plugins-authentication-spi.jar</file>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>install-auth-services-lib</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>install-file</goal>
+                        </goals>
+                        <configuration>
+                            <file>securetransport-plugins-authentication-services.jar</file>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>install-services-lib</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>install-file</goal>
+                        </goals>
+                        <configuration>
+                            <file>securetransport-plugins-services-spi.jar</file>
+                        </configuration>
+                    </execution>
+
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>

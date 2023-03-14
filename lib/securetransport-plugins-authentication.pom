@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.axway.securetransport.plugins</groupId>
+    <artifactId>securetransport-plugins-authentication</artifactId>
+    <version>5.5.0-4</version>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>spi</module>
+        <module>services</module>
+        <module>samples</module>
+        <module>sdk</module>
+    </modules>
+    <properties>
+        <securetransport-plugins-services.version>5.5.0-1</securetransport-plugins-services.version>
+    </properties>
+    <scm>
+        <connection>scm:git:git@git-cfius.ecd.axway.int:securetransport/securetransport-plugins-authentication.git</connection>
+        <url>git@git-cfius.ecd.axway.int:securetransport/securetransport-plugins-authentication.git</url>
+        <developerConnection>scm:git:git@git-cfius.ecd.axway.int:securetransport/securetransport-plugins-authentication.git</developerConnection>
+    <tag>5.5.0-4</tag>
+</scm>
+</project>
