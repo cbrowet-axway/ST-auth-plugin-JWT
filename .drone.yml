@@ -1,0 +1,11 @@
+kind: pipeline
+type: docker
+name: default
+
+steps:
+- name: buildAndTest
+  image: maven:3-jdk-8
+  commands:
+  - mvn install -f lib/pom.xml -B
+  - mvn package -DskipTests=true -Dmaven.javadoc.skip=true -B
+  - mvn test -B
