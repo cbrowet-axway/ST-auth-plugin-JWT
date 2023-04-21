@@ -16,7 +16,7 @@ public class UserManager {
 
     private static final String TAG = "tag";
 
-    private static final String TAG_VALUE = "sampleUser";
+    private static final String TAG_VALUE = "JWTUser";
 
     public UserDataBean getAdmin(String username) {
         UserDataBean admin = new UserDataBean(username, 0, 0, "", "");
