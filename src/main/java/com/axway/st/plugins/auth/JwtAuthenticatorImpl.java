@@ -99,12 +99,18 @@ public class JwtAuthenticatorImpl implements BasicAuthenticator {
         Date notBefore = jwt.getNotBefore();
         Date expiresAt = jwt.getExpiresAt();
 
-        if (notBefore.after(cur_date)) {
+        if (notBefore == null)
+            mLogger.warn("no 'nbf' (not_before) in JWT");
+        else if (notBefore.after(cur_date)) {
             mLogger.error(String.format("Error validating JWT: not_before: %s", notBefore));
             return new AuthenticationResultBean(String.format("Error validating JWT: not_before: %s", notBefore),
                     AuthenticationResult.ExitCode.FAILURE);
         }
-        if (expiresAt.before(cur_date)) {
+        if (expiresAt == null)
+           return new AuthenticationResultBean("Error validating JWT: invalide 'exp' (expiration date)",
+                AuthenticationResult.ExitCode.FAILURE);
+
+        else if (expiresAt.before(cur_date)) {
             mLogger.error(String.format("Error validating JWT: expired: %s", expiresAt));
             return new AuthenticationResultBean(String.format("Error validating JWT: expired: %s", expiresAt),
                     AuthenticationResult.ExitCode.FAILURE);
