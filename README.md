@@ -39,6 +39,7 @@ Deploy
     directory (e.g. `/opt/Axway/SecureTransport`).
   
 2.  Restart the SecureTransport admin and tm daemons.
+3.  Enable the plugin ("plugin-jwtauth") in the ST configuration ("Plugins.Authentication.EndUser.Registry")
 
 Usage
 -----
