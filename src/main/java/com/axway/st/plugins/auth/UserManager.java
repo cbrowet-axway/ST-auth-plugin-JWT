@@ -18,13 +18,13 @@ public class UserManager {
 
     private static final String TAG_VALUE = "sampleUser";
 
-    public UserData getAdmin(String username) {
+    public UserDataBean getAdmin(String username) {
         UserDataBean admin = new UserDataBean(username, 0, 0, "", "");
         addTag(admin);
         return admin;
     }
 
-    public UserData getUser(String username) {
+    public UserDataBean getUser(String username) {
         UserDataBean user = new UserDataBean(
                 username,
                 1234, 2345,
@@ -34,7 +34,7 @@ public class UserManager {
         return user;
     }
 
-    public UserData getUser(String username, int uid, int gid) {
+    public UserDataBean getUser(String username, int uid, int gid) {
         UserDataBean user = new UserDataBean(
                 username,
                 uid, gid,

@@ -120,12 +120,12 @@ public class JwtAuthenticatorImpl implements BasicAuthenticator {
         Claim cl_uid = jwt.getClaim("uid");
         Claim cl_gid = jwt.getClaim("gid");
 
-        UserData user;
+        UserDataBean user;
         UserManager userManager = new UserManager();
         user = userManager.getUser(cl_username.asString(), cl_uid.isNull() ? 1234 : cl_uid.asInt(), cl_gid.isNull() ? 2345 : cl_gid.asInt());
 
-        mLogger.info(String.format("User '%s' authenticated successfully.", cl_username));
-        return new AuthenticationResultBean(String.format("User '%s' authenticated successfully.", cl_username), user,
+        mLogger.info(String.format("User '%s' authenticated successfully.", cl_username.asString()));
+        return new AuthenticationResultBean(String.format("User '%s' authenticated successfully.", cl_username.asString()), user,
                 AuthenticationResult.ExitCode.SUCCESS);
 
     }
